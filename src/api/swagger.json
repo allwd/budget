@@ -1,0 +1,579 @@
+{
+  "info": {
+    "description": "This is a sample server",
+    "title": "Swagger",
+    "version": "1.0.0"
+  },
+  "host": "localhost:4000",
+  "basePath": "",
+  "produces": ["application/json"],
+  "schemes": ["http", "https"],
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": ""
+    }
+  },
+  "swagger": "2.0",
+  "paths": {
+    "/accounts/": {
+      "get": {
+        "parameters": [],
+        "description": "",
+        "tags": ["accounts"],
+        "responses": {
+          "200": {
+            "description": "Array of accounts",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "Account",
+            "in": "body",
+            "description": "data for element creation",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["accounts"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "",
+        "tags": ["accounts"],
+        "responses": {
+          "200": {
+            "description": "element",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be updated",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Account",
+            "in": "body",
+            "description": "data for element update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["accounts"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be removed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "",
+        "tags": ["accounts"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/elements/": {
+      "get": {
+        "parameters": [],
+        "description": "",
+        "tags": ["elements"],
+        "responses": {
+          "200": {
+            "description": "Array of elements",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Element"
+              }
+            }
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "Element",
+            "in": "body",
+            "description": "data for element creation",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Element"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["elements"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/elements/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "",
+        "tags": ["elements"],
+        "responses": {
+          "200": {
+            "description": "element",
+            "schema": {
+              "$ref": "#/definitions/Element"
+            }
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be updated",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Element",
+            "in": "body",
+            "description": "data for element update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Element"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["elements"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the element to be removed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "",
+        "tags": ["elements"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/users/authenticate": {
+      "post": {
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "email, password for user login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["users"],
+        "responses": {
+          "200": {
+            "description": "An array of user info"
+          },
+          "400": {
+            "description": "default error"
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "email, password, name and language for user registration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserRegistration"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["users"],
+        "responses": {
+          "200": {
+            "description": "Empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "parameters": [],
+        "description": "",
+        "tags": ["users"],
+        "responses": {
+          "200": {
+            "description": "An array of user info",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email - eg: user@domain",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "User",
+            "in": "body",
+            "description": "email, password, name and language for user registration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserRegistration"
+            }
+          }
+        ],
+        "description": "",
+        "tags": ["users"],
+        "responses": {
+          "200": {
+            "description": "empty response"
+          },
+          "400": {
+            "description": "default error"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "type": "object",
+      "required": ["user", "title", "type", "money"],
+      "properties": {
+        "user": {
+          "type": "string",
+          "description": ""
+        },
+        "title": {
+          "type": "string",
+          "description": ""
+        },
+        "type": {
+          "type": "string",
+          "description": ""
+        },
+        "money": {
+          "$ref": "#/definitions/Money"
+        }
+      }
+    },
+    "Money": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": ""
+        },
+        "currency": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "Element": {
+      "type": "object",
+      "required": ["user", "account", "createdDate", "money"],
+      "properties": {
+        "user": {
+          "type": "string",
+          "description": ""
+        },
+        "account": {
+          "type": "string",
+          "description": ""
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": ""
+        },
+        "createdDate": {
+          "type": "string",
+          "description": ""
+        },
+        "image": {
+          "type": "string",
+          "description": ""
+        },
+        "type": {
+          "type": "string",
+          "description": "type for element ",
+          "enum": ["income", "expense", "transfer"]
+        },
+        "money": {
+          "$ref": "#/definitions/Money"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": ["email", "password", "name"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "password": {
+          "type": "string",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "createdDate": {
+          "type": "string",
+          "description": ""
+        },
+        "language": {
+          "type": "string",
+          "description": "Language values that need to be considered ",
+          "enmu": ["en", "pl"]
+        }
+      }
+    },
+    "UserLogin": {
+      "type": "object",
+      "required": ["email", "password"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "password": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "UserRegistration": {
+      "type": "object",
+      "required": ["email", "password", "name"],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "password": {
+          "type": "string",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "language": {
+          "type": "string",
+          "description": "Language values that need to be considered ",
+          "enmu": ["en", "pl"]
+        }
+      }
+    }
+  },
+  "responses": {},
+  "parameters": {},
+  "tags": [
+    {
+      "name": "accounts",
+      "description": "Operations about accounts"
+    },
+    {
+      "name": "elements",
+      "description": "Operations about elements"
+    },
+    {
+      "name": "users",
+      "description": "Operations about user"
+    }
+  ]
+}
