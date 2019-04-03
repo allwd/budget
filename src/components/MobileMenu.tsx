@@ -42,7 +42,7 @@ interface FooterProps extends RouteComponentProps {
   onChange?: (event: React.ChangeEvent<{}>, value: any) => void
 }
 
-const Footer = (props: FooterProps) => (
+const MobileMenu = (props: FooterProps) => (
   <div className={props.classes.root}>
     {console.log(props.active)}
     <BottomNavigation
@@ -54,25 +54,21 @@ const Footer = (props: FooterProps) => (
       <BottomNavigationAction
         label='Dashboard'
         value={''}
-        // onClick={() => props.history.push('/')}
         icon={<HistoryIcon className={props.classes.icon} />}
       />
       <BottomNavigationAction
         label='Statistics'
         value={'statistics'}
-        // onClick={() => props.history.push('/statistics/')}
         icon={<AssesmentIcon className={props.classes.icon} />}
       />
       <BottomNavigationAction
         label=''
         value={'create'}
-        // onClick={() => props.history.push('/create/')}
         icon={<AddCircleIcon className={classNames(props.classes.icon, props.classes.addIcon)} />}
       />
       <BottomNavigationAction
         label='Accounts'
         value={'accounts'}
-        // onClick={() => props.history.push('/accounts/')}
         icon={<CreditCardIcon className={props.classes.icon} />}
       />
       <BottomNavigationAction
@@ -85,4 +81,4 @@ const Footer = (props: FooterProps) => (
   </div>
 )
 
-export default withStyles(styles)(withRouter<FooterProps>(Footer))
+export default withStyles(styles)(withRouter<FooterProps>(MobileMenu))
