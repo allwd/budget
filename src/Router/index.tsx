@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Index from '../containers/Index'
 import { AppState, AppContext } from '../Context/App'
 import { getJwtHeader } from '../helpers/JWT'
@@ -76,11 +76,12 @@ class App extends React.Component<{}, AppState> {
       <AppContext.Provider value={this.state}>
         <Router>
           <div className='container'>
-            <Route exact path='/' render={() => <Index context={this.state} />} />
-            <Route path='/index' render={() => <Index context={this.state} />} />
-            <Route exact path='/index/:action/' render={() => <Index context={this.state} />} />
-            <Route path='/index/:action/:id' render={() => <Index context={this.state} />} />
-            <Route path='/authenticate' render={() => <Authenticate context={this.state} />} />
+            <Switch>
+              <Route path='/authenticate' render={() => <Authenticate context={this.state} />} />
+              <Route path='/:action/:id' render={() => <Index context={this.state} />} />
+              <Route path='/:action/' render={() => <Index context={this.state} />} />
+              <Route path='/' render={() => <Index context={this.state} />} />
+            </Switch>
           </div>
         </Router>
       </AppContext.Provider>

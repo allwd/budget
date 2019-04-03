@@ -150,7 +150,7 @@ class ElementList extends React.Component<ElementListProps> {
               {value.map((Element, index) => (
                 <Link
                   key={index}
-                  to={`/index/view/${Element._id}`}
+                  to={`/view/${Element._id}`}
                   className={this.props.classes.element}
                 >
                   <Button className={this.props.classes.elementButton}>

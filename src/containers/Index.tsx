@@ -168,7 +168,7 @@ class Index extends React.Component<IndexProps, IndexState> {
   }
 
   handleFooterChange = (event: React.ChangeEvent<{}>, value: any) => {
-    this.props.history.push(`/index/${value}`)
+    this.props.history.push(`/${value}`)
   }
 
   render() {
