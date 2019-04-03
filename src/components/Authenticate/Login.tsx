@@ -24,7 +24,7 @@ const styles = theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 2,
     display: 'flex',
     flexDirection: 'column' as FlexDirectionProperty,
     alignItems: 'center',

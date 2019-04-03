@@ -12,11 +12,9 @@ import { Account as AccountModel } from '../api/models'
 import { User } from '../api/models'
 
 const styles = theme => ({
-  appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    overflow: 'auto'
+    padding: theme.spacing.unit * 3
   },
   chartContainer: {
     margin: theme.spacing.unit,
@@ -109,7 +107,6 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
   render() {
     return (
       <main className={this.props.classes.content}>
-        <div className={this.props.classes.appBarSpacer} />
         <Typography component='div' className={this.props.classes.chartContainer}>
           <BalanceOverview
             scope={'ALL ACCOUNTS'}

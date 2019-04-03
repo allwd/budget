@@ -28,6 +28,7 @@ export type ACTION_TYPES =
 
 const styles = theme => ({
   root: {
+    height: '100vh',
     display: 'flex'
   },
   title: {
@@ -35,6 +36,12 @@ const styles = theme => ({
   },
   h5: {
     marginBottom: theme.spacing.unit * 2
+  },
+  container: {
+    height: 'calc(100vh - 113px)',
+    width: '100%',
+    margin: '57px 0',
+    overflowY: 'scroll'
   }
 })
 
@@ -186,30 +193,32 @@ class Index extends React.Component<IndexProps, IndexState> {
         <MediaQuery query='(min-width: 768px)'>
           <SideMenu open={this.state.open} onChevronLeftIconClick={this.handleDrawerToggle} />
         </MediaQuery>
-        {!action ? (
-          <Dashboard
-            data={this.props.context.data}
-            user={this.props.context.user}
-            accounts={this.props.context.accounts}
-          />
-        ) : ['edit', 'create'].includes(action) ? (
-          <ElementForm
-            action={action as ACTION_TYPES}
-            id={id}
-            accounts={this.props.context.accounts}
-            onSubmit={this.handleElementFormSubmit}
-          />
-        ) : action === 'accounts' ? (
-          <Accounts
-            onRemove={this.handleAccountsRemove}
-            accounts={this.props.context.accounts}
-            onSubmit={this.handleAccountsSubmit}
-          />
-        ) : action === 'user' ? (
-          <User user={this.props.context.user} />
-        ) : (
-          'Error 404'
-        )}
+        <div className={classes.container}>
+          {!action ? (
+            <Dashboard
+              data={this.props.context.data}
+              user={this.props.context.user}
+              accounts={this.props.context.accounts}
+            />
+          ) : ['edit', 'create'].includes(action) ? (
+            <ElementForm
+              action={action as ACTION_TYPES}
+              id={id}
+              accounts={this.props.context.accounts}
+              onSubmit={this.handleElementFormSubmit}
+            />
+          ) : action === 'accounts' ? (
+            <Accounts
+              onRemove={this.handleAccountsRemove}
+              accounts={this.props.context.accounts}
+              onSubmit={this.handleAccountsSubmit}
+            />
+          ) : action === 'user' ? (
+            <User user={this.props.context.user} />
+          ) : (
+            'Error 404'
+          )}
+        </div>
         <MediaQuery query='(max-width: 767px)'>
           <Footer
             active={(action || '') + (id !== undefined ? `/${id}` : '')}
