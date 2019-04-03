@@ -14,4 +14,4 @@ yarn install
 yarn start
 ```
 
-![alt text](https://raw.githubusercontent.com/allwd/budget/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/allwd/budget/master/screenshot.png)
