@@ -95,45 +95,6 @@ class ElementForm extends React.Component<ElementFormProps, ElementFormState> {
     }
   }
 
-  getFormElements = (): Array<InputProps | SelectProps> => [
-    {
-      name: 'account',
-      label: 'Account',
-      callback: this.handleInputChange,
-      value: '',
-      type: 'select',
-      values: {} // @TODO add some kind of id reference
-    },
-    {
-      name: 'tags',
-      label: 'Tags',
-      callback: this.handleInputChange,
-      value: '',
-      type: 'input'
-    },
-    {
-      name: 'category',
-      label: 'Category',
-      callback: this.handleInputChange,
-      value: this.state.data.category || '',
-      type: 'input'
-    },
-    {
-      name: 'type',
-      label: 'Type',
-      callback: this.handleInputChange,
-      value: this.state.data.type || '', //this.props.data.type,
-      type: 'input'
-    },
-    {
-      name: 'money',
-      label: 'Amount',
-      callback: this.handleInputChange,
-      value: this.state.data.money || '',
-      type: 'input'
-    }
-  ]
-
   handleInputChange = (data: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       data: Object.assign({}, this.state.data, {

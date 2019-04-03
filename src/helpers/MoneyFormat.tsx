@@ -30,7 +30,6 @@ export class MoneyFormat extends React.PureComponent<MoneyFormatProps> {
   }
 
   render() {
-    console.log(this.props.money)
     return MoneyFormat.formatMoney(this.props.money, this.props.language)
   }
 }

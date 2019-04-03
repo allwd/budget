@@ -24,7 +24,7 @@ export type ACTION_TYPES =
   | 'dashboard'
   | 'account'
   | 'login'
-  | 'statistics' // export some to other routers
+  | 'statistics'
 
 const styles = theme => ({
   root: {

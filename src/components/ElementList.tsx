@@ -19,7 +19,6 @@ const styles = theme => ({
   root: {
     width: '100%',
     position: 'relative' as PositionProperty
-    // backgroundColor: theme.palette.background.paper,
   },
   details: {
     position: 'absolute' as PositionProperty,

@@ -65,7 +65,7 @@ interface DashboardState {
 
 class Dashboard extends React.Component<DashboardProps, DashboardState> {
   state: DashboardState = {
-    lastMonthBalance: [] // get it from API endpoints with params accountId possible null(for all accounts altogether) - returns MonthlyHistoryBalance
+    lastMonthBalance: [] // @TODO fetch from API
   }
 
   setMonthlyBalanceHistory() {

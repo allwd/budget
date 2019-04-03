@@ -23,7 +23,6 @@ const styles = theme => ({
   },
   bottomNavigation: {
     width: '100%'
-    // width: 'calc(100% - 100px)'
   },
   icon: {
     fontSize: '30px'

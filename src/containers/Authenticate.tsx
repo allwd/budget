@@ -94,8 +94,6 @@ class Authenticate extends React.Component<AuthenticateProps, AuthenticateState>
           response: 'Successfully registered',
           type: 'login' as AuthenticateType
         })
-
-        console.log('REGISTER RESPONSE', data)
       })
       .catch((e: any) => {
         // tslint:disable-next-line no-console

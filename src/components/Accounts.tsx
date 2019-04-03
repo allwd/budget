@@ -82,14 +82,12 @@ class Accounts extends React.Component<AccountsProps, AccountsState> {
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!this.props.isFetching) {
-      console.log(this.state.data)
       this.props.onSubmit(this.state.data)
     }
   }
 
   handleRemove = (event: React.FormEvent<HTMLElement>) => {
     event.preventDefault()
-    console.log(event.currentTarget)
     if (!this.props.isFetching) {
       this.props.onRemove(event.currentTarget.id)
     }

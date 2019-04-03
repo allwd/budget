@@ -1,6 +1,4 @@
-// on edit disable some parts of the form and show delete button
 import * as React from 'react'
-import { PostUsersRegisterBodyParameters } from '../../api/client'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import FormControl from '@material-ui/core/FormControl'
