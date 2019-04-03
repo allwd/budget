@@ -17,7 +17,7 @@ export type Element = {
   account?: string
   tags?: Array<string>
   category?: string
-  date?: string
+  createdDate?: string
   image?: string
   type?: string
   money?: Money
@@ -27,7 +27,7 @@ export type User = {
   email: string
   password?: string
   name?: string
-  date?: string
+  createdDate?: string
   language?: string
 }
 

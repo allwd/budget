@@ -79,10 +79,11 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
       this.props.data // @TODO map other accounts or sth, also set up a default account for user
         .forEach(value => {
-          const date = new Date(value.date)
+          const date = new Date(value.createdDate)
           if (date.getMonth() === now.getMonth() && value.type !== 'transfer') {
             // @TODO check for  type that doesn't change balance
-            balance[date.getDay()] += (value.type === 'income' ? 1 : -1) * value.money.amount
+            if (value.type !== 'transfer')
+              balance[date.getDay()] += (value.type === 'income' ? 1 : -1) * value.money.amount
           }
         })
 

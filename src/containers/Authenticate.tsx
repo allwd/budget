@@ -132,6 +132,9 @@ class Authenticate extends React.Component<AuthenticateProps, AuthenticateState>
             data={this.state.data}
           />
         )}
+        <div>
+          <div className='g-signin2' data-onsuccess='onSignIn' />
+        </div>
       </div>
     )
   }

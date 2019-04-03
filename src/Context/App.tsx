@@ -11,8 +11,6 @@ export interface AppState {
   setState?: (state: Partial<AppState>) => void
 }
 
-export type TYPES = 'income' | 'expense' | 'transfer'
-
 export interface UserState {
   jwt?: any
   isAuthenticated?: boolean
@@ -38,15 +36,5 @@ export interface MoneyElement {
 }
 
 export interface BudgetElement extends ElementModel {}
-
-// export interface BudgetElement {
-//   id: string
-//   tags?: string[]
-//   category?: string
-//   date?: string
-//   image?: string
-//   type?: string // expense/income maybe?
-//   money?: MoneyElement
-// }
 
 export let AppContext = React.createContext({} as AppState)

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Index from '../containers/Index'
-import { AppState, AppContext, BudgetElement } from '../Context/App'
+import { AppState, AppContext } from '../Context/App'
 import { getJwtHeader } from '../helpers/JWT'
 import { ApiFactory } from '../api/factory'
 import { User } from '../api/models'
@@ -9,11 +9,7 @@ import Authenticate from '../containers/Authenticate'
 
 class App extends React.Component<{}, AppState> {
   setData = (data: Partial<AppState>) => {
-    if (data.data) {
-      console.log('STATE UPDATE', data, Object.assign([], this.state.data, data.data))
-      this.setState({ data: Object.assign([], this.state.data, data.data) })
-    }
-
+    data.data && this.setState({ data: [...this.state.data, ...data.data] })
     data.accounts && this.setState({ accounts: data.accounts })
 
     if (data.user) {
@@ -26,15 +22,12 @@ class App extends React.Component<{}, AppState> {
   state: Partial<AppState> = {
     api: {
       host: process.env.API || '',
-      headers: Object.assign(
-        {},
-        {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*',
-          'Content-Type': 'application/json; charset=utf-8'
-        },
-        getJwtHeader(localStorage.getItem('user') || null)
-      )
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Content-Type': 'application/json; charset=utf-8',
+        ...getJwtHeader(localStorage.getItem('user') || null)
+      }
     },
     user: {
       jwt: localStorage.getItem('user') || null,
@@ -48,7 +41,7 @@ class App extends React.Component<{}, AppState> {
 
   componentDidMount(): void {
     this.refreshTicket()
-    setInterval(this.refreshTicket, 60000)
+    setInterval(this.refreshTicket, 5000)
   }
 
   refreshTicket = () => {
@@ -64,7 +57,7 @@ class App extends React.Component<{}, AppState> {
         .then((data: User) => {
           if (!this.state.user.isAuthenticated) {
             this.setState({
-              user: Object.assign({}, data, { isAuthenticated: true })
+              user: { ...data, isAuthenticated: true }
             })
           }
         })
@@ -84,13 +77,9 @@ class App extends React.Component<{}, AppState> {
         <Router>
           <div className='container'>
             <Route exact path='/' render={() => <Index context={this.state} />} />
-            <Route exact path='/:action/' render={() => <Index context={this.state} />} />
-            <Route exact path='/:action/:id' render={() => <Index context={this.state} />} />
-            <Route
-              exact
-              path='/authenticate/'
-              render={() => <Authenticate context={this.state} />}
-            />
+            <Route exact path='/index/:action/' render={() => <Index context={this.state} />} />
+            <Route path='/index/:action/:id' render={() => <Index context={this.state} />} />
+            <Route path='/authenticate' render={() => <Authenticate context={this.state} />} />
           </div>
         </Router>
       </AppContext.Provider>

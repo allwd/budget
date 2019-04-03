@@ -1,5 +1,6 @@
 import * as React from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
+import MediaQuery from 'react-responsive'
 import { CssBaseline, WithTheme } from '@material-ui/core'
 import Dashboard from '../components/Dashboard'
 import { AppState, BudgetElement } from '../Context/App'
@@ -12,6 +13,7 @@ import ElementForm from '../components/ElementForm'
 import { PostAccountsBodyParameters, PostElementsBodyParameters } from '../api/client'
 import Accounts from '../components/Accounts'
 import User from '../components/User'
+import SideMenu from '../components/SideMenu'
 
 export const DRAWER_WIDTH = 240
 export type ACTION_TYPES =
@@ -66,7 +68,6 @@ class Index extends React.Component<IndexProps, IndexState> {
         throw new Error('Elements fetch returns incorrect status')
       })
       .then((data: BudgetElement[]) => {
-        console.log('Elements', data)
         this.props.context.setState({
           data: data
         })
@@ -182,7 +183,9 @@ class Index extends React.Component<IndexProps, IndexState> {
           onUserIconClick={this.handleUserIconClick}
           onMenuIconClick={this.handleDrawerToggle}
         />
-        {/*<SideMenu open={this.state.open} onChevronLeftIconClick={this.handleDrawerClose} />*/}
+        <MediaQuery query='(min-width: 768px)'>
+          <SideMenu open={this.state.open} onChevronLeftIconClick={this.handleDrawerToggle} />
+        </MediaQuery>
         {!action ? (
           <Dashboard
             data={this.props.context.data}
@@ -207,10 +210,12 @@ class Index extends React.Component<IndexProps, IndexState> {
         ) : (
           'Error 404'
         )}
-        <Footer
-          active={(action || '') + (id !== undefined ? `/${id}` : '')}
-          onChange={this.handleFooterChange}
-        />
+        <MediaQuery query='(max-width: 767px)'>
+          <Footer
+            active={(action || '') + (id !== undefined ? `/${id}` : '')}
+            onChange={this.handleFooterChange}
+          />
+        </MediaQuery>
       </div>
     )
   }

@@ -83,7 +83,7 @@ class ElementList extends React.Component<ElementListProps> {
     } = {}
 
     this.props.data.forEach(
-      value => (datedHistory[value.date] = [value, ...datedHistory[value.date]])
+      value => (datedHistory[value.createdDate] = [value, ...datedHistory[value.createdDate]])
     )
 
     return datedHistory
@@ -94,7 +94,7 @@ class ElementList extends React.Component<ElementListProps> {
     const datedHistory: Map<string, BudgetElement[]> = new Map()
 
     this.props.data.forEach(value => {
-      const date = new Date(Number(value.date))
+      const date = new Date(Number(value.createdDate))
       const key = String(date.getFullYear() + date.getMonth() + date.getDay())
 
       datedHistory.set(key, [value, ...(datedHistory.get(key) || [])])

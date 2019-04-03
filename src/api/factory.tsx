@@ -23,8 +23,8 @@ const requestFactory: RequestFactoryType = (
     formData,
     Object.assign(
       {
-        // 'Content-Type': 'application/json;set=UTF-8',
-        // 'X-Requested-With': 'XMLHttpRequest'
+        'Content-Type': 'application/json;set=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest'
       },
       configuration.headers || {},
       headers

@@ -1,16 +1,22 @@
-import { RequestFactoryType } from './type'
+const querystring = require('querystring')
 
 export interface FetchRequestFactoryOptions {
   requestInit: RequestInit
 }
 
-const querystring = (obj: any) =>
-  Object.keys(obj)
-    .reduce(function(previous, key) {
-      previous.push(key + '=' + encodeURIComponent(obj[key]))
-      return previous
-    }, [])
-    .join('&')
+export interface ApiResponse<T> extends Response {
+  json(): Promise<T>
+}
+
+export type RequestFactoryType = (
+  path: string,
+  query: any,
+  body: any,
+  formData: any,
+  headers: any,
+  method: string,
+  configuration: any
+) => Promise<ApiResponse<any>>
 
 const pathBuilder = (domain: string, path: string, query: any): string => {
   const hasQuery = query && Object.keys(query).length > 0
@@ -18,8 +24,7 @@ const pathBuilder = (domain: string, path: string, query: any): string => {
   return [
     domain,
     path,
-    hasQuery && (path.includes('?') ? '&' : '?'),
-    hasQuery && querystring(query)
+    hasQuery && querystring.stringify(query).slice(path.includes('?') ? 1 : 0)
   ].join('')
 }
 
