@@ -16,15 +16,11 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
-    height: '100vh',
     overflow: 'auto'
   },
   chartContainer: {
     margin: theme.spacing.unit,
     marginBottom: 30
-  },
-  tableContainer: {
-    height: 320
   },
   listElement: {
     margin: 10
@@ -47,7 +43,7 @@ const styles = theme => ({
   }
 })
 
-export interface DashboardProps {
+interface DashboardProps {
   classes?: any
   user?: User | any
   data?: BudgetElement[]
@@ -147,7 +143,6 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
             'You do not have any elements yet. Press + button to add new expenses or income :)'
           )}
         </Typography>
-        <div className={this.props.classes.tableContainer} />
       </main>
     )
   }

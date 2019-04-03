@@ -77,6 +77,7 @@ class App extends React.Component<{}, AppState> {
         <Router>
           <div className='container'>
             <Route exact path='/' render={() => <Index context={this.state} />} />
+            <Route path='/index' render={() => <Index context={this.state} />} />
             <Route exact path='/index/:action/' render={() => <Index context={this.state} />} />
             <Route path='/index/:action/:id' render={() => <Index context={this.state} />} />
             <Route path='/authenticate' render={() => <Authenticate context={this.state} />} />
