@@ -44,7 +44,6 @@ interface FooterProps extends RouteComponentProps {
 
 const MobileMenu = (props: FooterProps) => (
   <div className={props.classes.root}>
-    {console.log(props.active)}
     <BottomNavigation
       value={props.active || ''}
       onChange={props.onChange}
