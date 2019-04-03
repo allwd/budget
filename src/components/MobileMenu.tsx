@@ -73,7 +73,6 @@ const MobileMenu = (props: FooterProps) => (
       <BottomNavigationAction
         label='Family'
         value={'family'}
-        // onClick={() => props.history.push('/family/')}
         icon={<PeopleIcon className={props.classes.icon} />}
       />
     </BottomNavigation>
