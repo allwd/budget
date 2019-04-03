@@ -13,3 +13,5 @@ Start the app by:
 yarn install
 yarn start
 ```
+
+![alt text](https://raw.githubusercontent.com/allwd/budget/screenshot.png)
