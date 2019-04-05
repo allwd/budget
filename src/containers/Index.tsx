@@ -14,6 +14,7 @@ import { PostAccountsBodyParameters, PostElementsBodyParameters } from '../api/c
 import Accounts from '../components/Accounts'
 import User from '../components/User'
 import SideMenu from '../components/SideMenu'
+import { OverflowYProperty } from 'csstype'
 
 export const DRAWER_WIDTH = 240
 export type ACTION_TYPES =
@@ -41,7 +42,7 @@ const styles = theme => ({
     height: 'calc(100vh - 113px)',
     width: '100%',
     margin: '57px 0',
-    overflowY: 'scroll'
+    overflowY: 'scroll' as OverflowYProperty
   }
 })
 
